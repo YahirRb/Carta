@@ -33,7 +33,7 @@ h1 {
 }
 
 .contenedor {
-    width: 400px;
+    width: 600px;
 }
 
 .envoltura-sobre {
@@ -45,8 +45,8 @@ h1 {
 
 .sobre {
     position: relative;
-    width: 400px;
-    height: 300px;
+    width: 600px;
+    height: 450px;
 }
 
 .sobre::before {
@@ -56,9 +56,9 @@ h1 {
     left: 0;
     right: 0;
     z-index: 4;
-    border-top: 180px solid var(--solapa-sobre);
-    border-right: 200px solid transparent;
-    border-left: 200px solid transparent;
+    border-top: 270px solid var(--solapa-sobre);   /* antes 180px */
+    border-right: 300px solid transparent;         /* antes 200px */
+    border-left: 300px solid transparent;
     transform-origin: top;
     transition: all 0.5s ease-in-out 0.7s;
     border-radius: 10px;
@@ -98,20 +98,39 @@ h1 {
     background-color: var(--primario);
     text-align: center;
     box-shadow: 0 0 5px var(--sombra);
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;   /* un poco más de padding para que respire el contenido */
+    border-radius: 15px;
     transition: transform .5s ease-in-out;
 }
+.boton-carta {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--primario);
+    background-color: var(--corazon);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-carta:hover {
+    background-color: #e63963; /* un tono más oscuro */
+    transform: scale(1.05);
+}
+
 
 .contenido {
     font-family: "Gill Sans", Calibri, sans-serif;
     color: var(--texto);
     text-align: left;
-    font-size: 12px;
+    font-size: 19px;
     border: 3px dotted var(--texto);
-    padding: 10px;
+    padding: 15px;
     height: 100%;
-    line-height: 14px;
+    line-height: 24px;
     cursor: pointer;
     overflow-Y: scroll;
 }
@@ -120,8 +139,8 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     background-color: var(--corazon);
     transform: translate(-50%,0) rotate(45deg);
     transition: transform 0.5s ease-in-out 1s;
@@ -133,19 +152,19 @@ h1 {
 .corazon::after {
     content: "";
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     background-color: var(--corazon);
     border-radius: 100%;
 
 }
 
 .corazon:before {
-    top: -15px;
+    top: -25px;
 }
 
 .corazon:after {
-    right: 15px;
+    right: 25px;
 }
 
 /*Agregar clases dinamicos*/
@@ -160,12 +179,12 @@ h1 {
 }
 
 .carta.mostrar-carta {
-    transform: translateY(-290px);
+    transform: translateY(-430px);
     transition: transform .5s ease-in-out;
 }
 
 .carta.cerrando-carta {
-    transform: translateY(-290px);
+    transform: translateY(-430px);
     transition: transform .5s ease-in-out;
 }
 
@@ -204,12 +223,12 @@ h1 {
 
 @media screen and (max-width:400px) {
     .contenedor {
-        width: 300px;
+        width: 600px;
     }
 
     .sobre {
-        width: 300px;
-        height: 250px;
+        width: 600px;
+        height: 450px;
     }
 
     .sobre::before {

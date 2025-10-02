@@ -29,3 +29,10 @@ document.addEventListener("click", (e) => {
 
     } 
 })
+function abrirOtraPagina() {
+    // Abre mensaje.html en la misma ventana
+    window.location.href = "pregunta.html";
+
+    // Si quieres abrirlo en otra pestaña, usa:
+    // window.open("mensaje.html", "_blank");
+  }

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi novia?</title>
+  <style>
+    body {
+      background-color: #ffe3ed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: "Gill Sans", Calibri, sans-serif;
+    }
+
+    h1 {
+      color: #ff477e;
+      font-size: 40px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .botones {
+      position: relative;
+      width: 500px;
+      height: 400px;
+    }
+
+    .botones button {
+      position: absolute;
+      padding: 12px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    #btnSi {
+      background-color: #ff477e;
+      color: white;
+      left: 40px;
+      top: 80px;
+    }
+
+    #btnSi:hover {
+      background-color: #e63963;
+      transform: scale(1.05);
+    }
+
+    #btnNo {
+      background-color: #003049;
+      color: white;
+      right: 40px;
+      top: 80px;
+    }
+
+    #btnNo:hover {
+      background-color: #444;
+    }
+    /* Estilo del modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .modal h2 {
+            margin-top: 0;
+            color: #ff477e;
+        }
+
+        .modal button {
+            background-color: #ff477e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+  </style>
+</head>
+<body>
+    <img src="https://i.pinimg.com/236x/47/6b/85/476b85783b816fef1d2c56ebe247cc0f.jpg" alt="Imagen bonita" style="width:200px; margin-bottom:20px; border-radius:10px;">
+
+    <h1>¿Quieres ser mi novia? 💖</h1>
+
+    <div class="botones">
+        <button id="btnSi">Sí 💕</button>
+        <button id="btnNo">No 😅</button>
+    </div>
+
+    <!-- Overlay y Modal -->
+    <div class="overlay"></div>
+    <div class="modal">
+         <img src="https://i.pinimg.com/originals/b0/fc/69/b0fc69471f2c62d4754fe6cc6410c7b2.gif" 
+         alt="Imagen de celebración" 
+         style="width:300px; border-radius:10px; display:block; margin:auto;">
+        <h2>¡Sabía que dirías que si mi amor! 🥰</h2>
+        <p>TE AMOOOOOOOOOOOO💖✨</p>
+        <img src="https://i.pinimg.com/originals/e3/d1/0d/e3d10ddc4e252e8980dceebaf6174add.gif" 
+         alt="Imagen" 
+         style="width:100px; border-radius:10px; display:block; margin:auto;">
+        <button id="cerrarModal">Cerrar</button>
+    </div>
+
+    <script>
+        const btnNo = document.getElementById("btnNo");
+        const contenedor = document.querySelector(".botones");
+
+        btnNo.addEventListener("mouseenter", () => {
+            const contWidth = contenedor.clientWidth - btnNo.offsetWidth;
+            const contHeight = contenedor.clientHeight - btnNo.offsetHeight;
+
+            const randomX = Math.random() * contWidth;
+            const randomY = Math.random() * contHeight;
+
+            btnNo.style.left = randomX + "px";
+            btnNo.style.top = randomY + "px";
+        });
+
+        const btnSi = document.getElementById("btnSi");
+        const modal = document.querySelector(".modal");
+        const overlay = document.querySelector(".overlay");
+        const cerrarModal = document.getElementById("cerrarModal");
+
+        btnSi.addEventListener("click", () => {
+            modal.style.display = "block";
+            overlay.style.display = "block";
+        });
+
+        cerrarModal.addEventListener("click", () => {
+            modal.style.display = "none";
+            overlay.style.display = "none";
+        });
+
+        overlay.addEventListener("click", () => {
+            modal.style.display = "none";
+            overlay.style.display = "none";
+        });
+    </script>
+</body>
+
+</html>
